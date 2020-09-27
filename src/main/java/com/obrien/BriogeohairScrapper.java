@@ -1,6 +1,6 @@
 package com.obrien;
 
-import java.io.IOException;
+
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -35,7 +35,7 @@ public class BriogeohairScrapper implements Scrapper {
         }
     }
 
-    public void getProduct(Element link) throws IOException {
+    public void getProduct(Element link) throws Exception {
         String productLink = null;
         String ingredients = null;
         String price = null;
@@ -43,7 +43,8 @@ public class BriogeohairScrapper implements Scrapper {
         String image = null;
         String productName = null;
         String size = null;
-        try{
+
+        
             // convert page to generated HTML and convert to document
             productLink = baseURL + link.attr("href");
             Document doc = Jsoup.connect(productLink).get();
@@ -59,12 +60,6 @@ public class BriogeohairScrapper implements Scrapper {
             if(ingredients != null && !ingredients.isEmpty() && !price.isBlank() && price != null && !isProductCollections(productName)){
                 double priceNum = Double.parseDouble(price.replaceAll("[\\$a-zA-Z ]", ""));
                 Scrapper.products.add(new Product(productLink, productName, priceNum, ingredients, description, image, size));
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }
-
-        
-     
+            }     
     }
 }

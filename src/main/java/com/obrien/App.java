@@ -37,7 +37,7 @@ public class App {
         }
         for(Product product : Scrapper.products){
             Files.write(Paths.get("./files.txt"), product.toString().getBytes(), StandardOpenOption.APPEND);
-   
+
         }
 
 

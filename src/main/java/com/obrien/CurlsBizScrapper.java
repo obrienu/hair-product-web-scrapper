@@ -1,6 +1,6 @@
 package com.obrien;
  
-import java.io.IOException;
+
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -32,9 +32,9 @@ public class CurlsBizScrapper implements Scrapper {
         }
     }
 
-    public void getProduct(Element link) throws IOException {
+    public void getProduct(Element link) throws Exception {
        
-        try{
+        
             // convert page to generated HTML and convert to document
             String productLink = link.attr("href");
             Document doc = Jsoup.connect(productLink).get();
@@ -49,9 +49,7 @@ public class CurlsBizScrapper implements Scrapper {
                 Scrapper.products.add(new Product(productLink, productName, priceNum, ingredients, description, image, null));
             }     
             
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+      
     }
 
     
