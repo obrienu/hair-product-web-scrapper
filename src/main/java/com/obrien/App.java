@@ -36,7 +36,7 @@ public class App {
              executor.execute(new Runnable() {
                 @Override
                 public void run() {
-                    scrapper.scrap();
+                    scrapper.scrape();
                 };
             });
         }

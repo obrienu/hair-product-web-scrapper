@@ -9,7 +9,7 @@ public interface Scrapper {
      * The method scrapes the web for products and saves the products 
      * to a products list
      */
-    public void scrap();
+    public void scrape();
 
     default boolean isProductCollections(String name){
         return name.toLowerCase().matches(".*(ki(t|ts)|collectio(n|ns)|pack).*");

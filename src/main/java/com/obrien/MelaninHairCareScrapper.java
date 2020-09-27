@@ -19,7 +19,7 @@ public class MelaninHairCareScrapper implements Scrapper {
     Pattern pattern  = Pattern.compile(".*(shampoo|cream|oil|conditioner).*", Pattern.CASE_INSENSITIVE);
 
 
-    public void scrap(){
+    public void scrape(){
         System.out.println("Scrapping MelaninHairCare");
         getProductLinks();
     }

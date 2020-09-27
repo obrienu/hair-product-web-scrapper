@@ -17,7 +17,7 @@ public class CurlSmithScrapper implements Scrapper {
     List<Product> products = new CopyOnWriteArrayList<Product>();
     List<String> collections = new CopyOnWriteArrayList<String>();
 
-    public void scrap() {
+    public void scrape() {
         System.out.println("Scrapping CurlSmith");
         getProductLinks();
     }
