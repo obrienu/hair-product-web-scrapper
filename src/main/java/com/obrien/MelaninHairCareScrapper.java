@@ -60,7 +60,7 @@ public class MelaninHairCareScrapper implements Scrapper {
         String productName = null;
         String size = null;
         
-        
+        try{
             // convert page to generated HTML and convert to document
             productLink = baseURL + link.attr("href");
             Document doc = Jsoup.connect(productLink).get();
@@ -74,7 +74,9 @@ public class MelaninHairCareScrapper implements Scrapper {
                 double priceNum = Double.parseDouble(price.replaceAll("[\\$a-zA-Z ]", ""));
                 Scrapper.products.add(new Product(productLink, productName, priceNum, ingredients, description, image, size));
             }
-        
+            } catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 
